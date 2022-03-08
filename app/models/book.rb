@@ -17,6 +17,8 @@ class Book < ApplicationRecord
   def self.search_for(content, method)
     if method == 'perfect'
       Book.where(title: content)
+    elsif method == 'cate-perfect'
+      Book.where(category: content)
     elsif method == 'forward'
       Book.where('title LIKE ?', content+'%')
     elsif method == 'backward'
